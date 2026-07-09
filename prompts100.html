@@ -1,0 +1,1292 @@
+<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coworkで使えるプロンプト100選</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet"><style>
+:root{--brand:#D9774F;--brand-deep:#C15640;--brand-soft:rgba(217,119,79,.12);--accent:#D9774F;--accent-deep:#B24E33;
+--bg:#F1ECE3;--paper:#FBF8F2;--ink:#2A2620;--ink-mid:#6E6557;--line:#E4D9C7;--head:'M PLUS Rounded 1c';}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',-apple-system,'Hiragino Sans',sans-serif;line-height:1.7;}
+.wrap{max-width:960px;margin:0 auto;background:var(--paper);min-height:100vh;}
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--brand);padding:16px 28px;}
+header .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+header img{width:40px;height:40px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 2px 8px rgba(0,0,0,.14);}
+header .ttl{font-family:var(--head);font-weight:900;font-size:20px;color:var(--brand-deep);line-height:1.2;}
+header .ttl small{display:block;font-size:12px;color:var(--ink-mid);font-weight:500;}
+.badge{display:inline-block;background:var(--brand);color:#fff;font-family:var(--head);font-weight:900;font-size:13px;border-radius:999px;padding:4px 14px;}
+.hbtns{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);border:2px solid var(--brand);color:var(--ink);
+border-radius:999px;padding:8px 18px;font-weight:900;font-size:14px;cursor:pointer;text-decoration:none;font-family:'Noto Sans JP';}
+.btn.ghost{background:var(--paper);border:1.5px solid var(--line);color:var(--brand-deep);}
+.btn.sm{padding:6px 14px;font-size:13px;}
+main{padding:24px 28px 60px;}
+.lead{font-size:15px;color:var(--ink-mid);margin-bottom:18px;}
+h2.cat{font-family:var(--head);font-weight:900;font-size:22px;color:var(--ink);margin:30px 0 14px;padding-left:12px;border-left:5px solid var(--brand);}
+.icard{background:var(--paper);border:1.5px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.ititle{font-family:var(--head);font-weight:900;font-size:17px;color:var(--ink);margin-bottom:5px;}
+.imeta{font-size:12.5px;color:var(--ink-mid);margin-bottom:10px;}
+.idesc{font-size:14.5px;color:var(--ink);margin-bottom:10px;}
+pre.prompt{background:var(--ink);color:#ECECEA;border-radius:10px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;
+font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.65;max-height:340px;overflow-y:auto;margin-bottom:10px;}
+.cbtns{display:flex;gap:8px;flex-wrap:wrap;}
+.toolbar{position:sticky;top:74px;z-index:15;background:var(--paper);padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:8px;}
+.toolbar input{width:100%;padding:11px 16px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink);}
+.toolbar input:focus{outline:none;border-color:var(--brand);}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;}
+.chip{background:var(--paper);border:1.5px solid var(--line);color:var(--ink-mid);border-radius:999px;padding:5px 13px;font-size:13px;font-weight:700;cursor:pointer;}
+.chip.on{background:var(--brand);border-color:var(--brand);color:#fff;}
+.count{font-size:13px;color:var(--ink-mid);margin:6px 0 4px;}
+.hidden{display:none!important;}
+footer{padding:26px 28px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-mid);text-align:center;}
+footer a{color:var(--brand-deep);}
+@media(max-width:600px){main{padding:18px 16px 50px;}header{padding:12px 16px;}}
+</style></head><body><div class="wrap"><header><div class="top"><img src="data:image/jpeg;base64,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" alt=""><div class="ttl">Coworkで使えるプロンプト100選<small>ClaudeCodeチャンネル・プレゼント</small></div><span class="badge">100本</span>
+<div class="hbtns"><a class="btn ghost" href="./present.html">← 一覧へ</a><button class="btn" onclick="downloadText('pfull','cowork-prompts-100.md',this)">⬇ 全件ダウンロード</button></div>
+</div></header><main>
+<p class="lead">全100項目。各カードのボタンから個別にコピー、上部から全件ダウンロードできます。</p>
+<h2 class="cat">1. ファイル・フォルダ整理／リネーム</h2>
+<div class="icard">
+<div class="ititle">1. 散らかったフォルダを内容で仕分けリネーム</div>
+<div class="imeta">対象: 総務・全職種 ｜ 場面: デスクトップやダウンロードが散らかったとき</div>
+<pre class="prompt" id="p1">このフォルダの中身を確認して、内容ごとにサブフォルダを作って仕分けし、各ファイルを「YYYY-MM-DD_内容がわかる短い名前」に統一リネームして。移動前に分類案を提示して、承認したら実行して。最後にどこに何を入れたかのindexをmarkdownで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p1',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">2. 重複ファイルの検出と統合案</div>
+<div class="imeta">対象: 総務・オペレーション ｜ 場面: 同じ資料が複数バージョンで散在しているとき</div>
+<pre class="prompt" id="p2">このフォルダ内で内容がほぼ同じ・重複しているファイルを見つけて一覧にして。どれを正本として残すべきか(更新日・内容の完全性で判断)を提案し、承認後に重複分を「重複_アーカイブ」フォルダへ移動して。削除はしないで。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p2',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">3. 写真・スクリーンショットの月別自動振り分け</div>
+<div class="imeta">対象: 個人・広報 ｜ 場面: スクリーンショットや写真が撮影日バラバラで溜まっているとき</div>
+<pre class="prompt" id="p3">このフォルダの画像を撮影日または更新日を見て「YYYY-MM」のサブフォルダに振り分けて。スクリーンショットと写真は別フォルダに分けて。作業前にフォルダ構成案を見せて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p3',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">4. 契約書フォルダをcontrol area別に仕分け</div>
+<div class="imeta">対象: 法務 ｜ 場面: 契約書が種類ごとに整理されず1フォルダに溜まっているとき</div>
+<pre class="prompt" id="p4">このフォルダ内の契約書を読んで、契約種別(業務委託・NDA・利用規約など)ごとにサブフォルダへ仕分けて。契約書ごとに相手方名・締結日・満了日をまとめた一覧もExcelで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p4',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">5. 領収書画像をExcel台帳用にリネーム整理</div>
+<div class="imeta">対象: 経理 ｜ 場面: 経費精算の領収書画像がまとまっていないとき</div>
+<pre class="prompt" id="p5">このフォルダの領収書画像を1枚ずつ確認して、「日付_支払先_金額」の形式でリネームして。同時に日付・支払先・金額・勘定科目候補を並べたExcel一覧を作って。読み取れないものは備考に不明と書いて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p5',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">6. バージョン違いファイルの最新版だけ抽出</div>
+<div class="imeta">対象: 企画・制作 ｜ 場面: 同じ資料のv1、v2、finalなどが混在しているとき</div>
+<pre class="prompt" id="p6">このフォルダ内で同じ資料の複数バージョンを見つけて、ファイル名・更新日から最新版らしきものを判定して。最新版だけを「最新」フォルダにコピーし、判断根拠を一覧にして見せて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p6',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">7. 巨大フォルダの中身indexマップ作成</div>
+<div class="imeta">対象: 新任担当者・引き継ぎ ｜ 場面: 前任者が残した大量フォルダを把握したいとき</div>
+<pre class="prompt" id="p7">このフォルダ全体をざっと確認して、どんな種類のファイルがどこにあるかをmarkdownのindexにまとめて。特に古そうなもの・重要そうなものにコメントを添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p7',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">8. 命名規則を統一した一括リネーム</div>
+<div class="imeta">対象: 総務・オペレーション ｜ 場面: 部署内でファイル名がバラバラなとき</div>
+<pre class="prompt" id="p8">このフォルダ内のファイルを「案件名_資料種別_日付」の命名規則に統一してリネームして。今の名前と新しい名前の対応表を先に見せてから実行して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p8',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">9. 長期未使用ファイルのアーカイブ移動</div>
+<div class="imeta">対象: 総務 ｜ 場面: 容量を圧迫する古いファイルを整理したいとき</div>
+<pre class="prompt" id="p9">このフォルダ内で更新日が1年以上前のファイルを洗い出して一覧にして。内容から見て不要そうなものと残すべきものを分けて提案し、承認後に「アーカイブ」フォルダへ移動して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p9',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">10. プロジェクト完了フォルダの納品用パッケージ化</div>
+<div class="imeta">対象: PM・制作 ｜ 場面: プロジェクトが終わり納品物をまとめたいとき</div>
+<pre class="prompt" id="p10">このプロジェクトフォルダから納品対象のファイルだけを選んで「納品」フォルダにまとめて。含めた理由・除外したファイルの一覧、納品物の目次をmarkdownで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p10',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">2. 資料・スライド作成（PowerPoint/Googleスライド）</h2>
+<div class="icard">
+<div class="ititle">11. 議事録から4枚の要点デッキを作る</div>
+<div class="imeta">対象: マーケ・広報 ｜ 場面: 会議の内容を経営陣に簡潔に共有したいとき</div>
+<pre class="prompt" id="p11">このフォルダの議事録を読んで、要点・決定事項・次のアクションをPowerPointの4枚デッキにまとめて。1枚目はサマリー、最後の1枚は推奨アクションにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p11',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">12. 週次レポートをテンプレ通りに更新</div>
+<div class="imeta">対象: マーケ・営業 ｜ 場面: 毎週同じ形式のレポートを更新するとき</div>
+<pre class="prompt" id="p12">このフォルダにある先週のレポートを雛形として、今週分のデータで数値と所感を更新して。フォーマットは変えず、前週比の増減も一言添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p12',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">13. リサーチ結果をスライド化</div>
+<div class="imeta">対象: 企画・リサーチ ｜ 場面: 調査結果を関係者に見せる形にしたいとき</div>
+<pre class="prompt" id="p13">このフォルダの調査メモを読んで、要点ごとにスライド1枚1トピックの構成でGoogleスライドを作って。参照したファイル名も各スライドの下部に小さく記載して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p13',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">14. 提案書のドラフトをPowerPointで作る</div>
+<div class="imeta">対象: 営業 ｜ 場面: 顧客向けの新規提案資料を準備するとき</div>
+<pre class="prompt" id="p14">このフォルダの過去提案書と今回のヒアリングメモをもとに、課題・提案内容・導入効果・費用感の構成で提案書ドラフトを作って。デザインは過去資料のトーンに合わせて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p14',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">15. 決算資料を前回フォーマットで更新</div>
+<div class="imeta">対象: 経理・財務 ｜ 場面: 四半期ごとに同じ形式の決算資料を作るとき</div>
+<pre class="prompt" id="p15">このフォルダの前回決算資料をフォーマットとして使い、最新の数値データに差し替えて更新して。増減が大きい項目にはコメントを追加して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p15',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">16. 複数資料を1つのデッキに統合</div>
+<div class="imeta">対象: PM・企画 ｜ 場面: 各チームがバラバラに作った資料を1本化したいとき</div>
+<pre class="prompt" id="p16">このフォルダ内の複数のスライド資料を内容の重複を整理しながら1つのデッキに統合して。章立て案を先に見せてから統合作業に入って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p16',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">17. 社内向け説明スライドを図解付きで作る</div>
+<div class="imeta">対象: 情シス・企画 ｜ 場面: 新しい業務フローを社内に説明したいとき</div>
+<pre class="prompt" id="p17">このフォルダの業務フロー文書をもとに、図解を交えた社内説明用スライドを作って。専門用語には簡単な言い換えを添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p17',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">18. 顧客向け事例紹介スライドを作る</div>
+<div class="imeta">対象: マーケ・営業 ｜ 場面: 導入事例を営業資料として使いたいとき</div>
+<pre class="prompt" id="p18">このフォルダの事例インタビュー記録を読んで、課題→導入→効果の流れで1社1枚の事例紹介スライドを作って。数字の成果は目立つように配置して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p18',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">19. スライドのデザインをブランドガイドに揃える</div>
+<div class="imeta">対象: マーケ・デザイン ｜ 場面: バラバラなデザインのスライドを統一したいとき</div>
+<pre class="prompt" id="p19">このフォルダのブランドガイドを参照して、指定のスライド資料のフォント・配色・ロゴ配置をガイドに合わせて統一して。変更箇所を最後に一覧で報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p19',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">20. 長い資料を要点3枚に圧縮する</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 長い報告書を経営層向けに短くしたいとき</div>
+<pre class="prompt" id="p20">このフォルダの報告書を読んで、要点だけを3枚のスライドに圧縮して。1枚目は結論、2枚目は根拠データ、3枚目は次のアクションにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p20',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">3. データ分析・集計・可視化</h2>
+<div class="icard">
+<div class="ititle">21. 売上csvを月次集計してグラフ化</div>
+<div class="imeta">対象: 営業・経理 ｜ 場面: 日次売上データを月次で振り返りたいとき</div>
+<pre class="prompt" id="p21">このフォルダの売上csvを月ごとに集計して、推移がわかる折れ線グラフを作って。前年同月比も出して、目立った増減には理由の仮説をコメントで添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p21',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">22. 複数店舗の実績を比較分析</div>
+<div class="imeta">対象: 店舗運営 ｜ 場面: 複数拠点の実績を横比較したいとき</div>
+<pre class="prompt" id="p22">このフォルダの店舗別実績データを比較して、上位・下位の店舗と差が出ている要因の仮説をまとめて。比較しやすい表とグラフをExcelで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p22',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">23. アンケート回答を集計してレポート化</div>
+<div class="imeta">対象: マーケ・CS ｜ 場面: 顧客アンケートの結果をまとめたいとき</div>
+<pre class="prompt" id="p23">このフォルダのアンケート回答データを設問ごとに集計して、自由記述はテーマ別に分類して。結果をグラフ付きのレポートにまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p23',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">24. KPIダッシュボードの元データ整理</div>
+<div class="imeta">対象: PM・マーケ ｜ 場面: 散らばったKPIデータを1つに集約したいとき</div>
+<pre class="prompt" id="p24">このフォルダ内の複数ファイルに散らばっているKPIデータを1つのExcelシートにまとめて。項目名の表記ゆれは統一して、集計しやすい形に整えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p24',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">25. 在庫データの異常値検出</div>
+<div class="imeta">対象: 物流・購買 ｜ 場面: 在庫数の異常を見つけたいとき</div>
+<pre class="prompt" id="p25">このフォルダの在庫データを確認して、急な増減や通常と違う数値を持つ品目を洗い出して。それぞれ考えられる原因の仮説も添えて一覧にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p25',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">26. 広告出稿データの費用対効果分析</div>
+<div class="imeta">対象: マーケ ｜ 場面: 複数媒体の広告効果を比較したいとき</div>
+<pre class="prompt" id="p26">このフォルダの広告出稿データを媒体別に集計して、CPAやROASなど効果指標を比較して。次月の予算配分についての示唆をコメントで添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p26',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">27. 顧客セグメント別の傾向分析</div>
+<div class="imeta">対象: マーケ・CS ｜ 場面: 顧客層ごとの違いを把握したいとき</div>
+<pre class="prompt" id="p27">このフォルダの顧客データを属性や購買履歴でセグメント分けして、セグメントごとの傾向をまとめて。グラフと簡潔な考察をレポートにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p27',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">28. 週次/月次の推移をトレンドグラフ化</div>
+<div class="imeta">対象: 経営企画 ｜ 場面: 定点観測している数値の推移を見たいとき</div>
+<pre class="prompt" id="p28">このフォルダの週次データを月次に集約して、主要指標の推移をトレンドグラフにして。傾向が変わった時期があれば注記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p28',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">29. 複数ファイルのデータを統合してピボット</div>
+<div class="imeta">対象: 経理・分析 ｜ 場面: 部署ごとに分かれたファイルを1つにまとめたいとき</div>
+<pre class="prompt" id="p29">このフォルダ内の複数のExcelファイルを1つに統合して、部門別・期間別に集計できるピボットテーブルを作って。統合時の重複や欠損があれば報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p29',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">30. 分析結果をわかりやすいレポートに要約</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 分析済みデータを非専門家にも伝えたいとき</div>
+<pre class="prompt" id="p30">このフォルダの分析データをもとに、専門用語を避けた1枚のサマリーレポートを作って。結論と根拠グラフ、次にすべきことを簡潔にまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p30',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">4. メール・カレンダー・議事録（Gmail/Googleカレンダー/ドライブ連携）</h2>
+<div class="icard">
+<div class="ititle">31. 受信トレイの重要メールを朝イチで要約</div>
+<div class="imeta">対象: 管理職・営業 ｜ 場面: 出社直後にメールを効率よく確認したいとき</div>
+<pre class="prompt" id="p31">Gmailの直近24時間の受信メールを確認して、対応が必要なものだけを重要度順に要約して。返信不要な通知系は除外して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p31',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">32. 参加者宛のTODOメール下書き作成</div>
+<div class="imeta">対象: PM ｜ 場面: 会議後に参加者へタスクを共有したいとき</div>
+<pre class="prompt" id="p32">このフォルダの会議議事録を読んで、参加者ごとに割り当てられたTODOを整理し、それぞれ宛先別のフォローアップメール下書きをGmailに作成して。送信はしないで。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p32',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">33. 会議の文字起こしから議事録をテンプレで作成</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 録音・文字起こしから正式な議事録を作るとき</div>
+<pre class="prompt" id="p33">このフォルダの会議文字起こしを読んで、前回の議事録と同じフォーマットで議事録を作成して。決定事項とネクストアクションの担当者を明確にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p33',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">34. カレンダーの空き時間から候補日程を提示</div>
+<div class="imeta">対象: 営業・秘書業務 ｜ 場面: 複数人との打ち合わせ日程を調整したいとき</div>
+<pre class="prompt" id="p34">Googleカレンダーを確認して、来週で1時間の空きが取れる候補日時を3つ挙げて。既存の予定とバッティングしないものだけにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p34',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">35. 未返信メールのフォローアップ下書き</div>
+<div class="imeta">対象: 営業・CS ｜ 場面: 返信が止まっている商談を掘り起こしたいとき</div>
+<pre class="prompt" id="p35">Gmailで1週間以上返信が来ていない送信済みメールを洗い出して、それぞれ穏やかなフォローアップの下書きを作って。一覧を先に見せてから下書き作成に進んで。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p35',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">36. ドライブ内資料とカレンダーを突合して準備物リスト作成</div>
+<div class="imeta">対象: PM・営業 ｜ 場面: 会議前に必要な資料を漏れなく揃えたいとき</div>
+<pre class="prompt" id="p36">明日のカレンダー予定を確認して、それぞれの会議に関連しそうな資料をGoogleドライブから探し、準備物リストを作って。見つからないものは不明として明記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p36',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">37. 週の予定をまとめたブリーフィングを毎朝作成</div>
+<div class="imeta">対象: 管理職 ｜ 場面: 1日の予定を俯瞰して把握したいとき</div>
+<pre class="prompt" id="p37">今日のGoogleカレンダーの予定とGmailの重要メールをまとめて、朝の1枚ブリーフィングを作って。優先して対応すべき順に並べて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p37',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">38. 出張の予定からタスクリストを自動生成</div>
+<div class="imeta">対象: 営業・総務 ｜ 場面: 出張準備の抜け漏れをなくしたいとき</div>
+<pre class="prompt" id="p38">Googleカレンダーの出張予定を確認して、必要な準備(交通手配・宿泊・持ち物・訪問先資料)のタスクリストを作って。期限も添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p38',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">39. 会議前に関連資料を集めて事前ブリーフを作成</div>
+<div class="imeta">対象: 営業・PM ｜ 場面: 商談や打ち合わせの前に頭を整理したいとき</div>
+<pre class="prompt" id="p39">次の商談の相手企業について、このフォルダ内の過去のやり取りとメールを確認し、会話で使える事前ブリーフを1枚にまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p39',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">40. メール内の依頼事項を抽出してタスク化</div>
+<div class="imeta">対象: 全職種 ｜ 場面: メールに埋もれた依頼を漏らさず管理したいとき</div>
+<pre class="prompt" id="p40">Gmailの直近1週間のメールから、自分宛の依頼・確認事項を抽出して、期限とあわせたタスク一覧をこのフォルダにExcelで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p40',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">5. リサーチ・情報収集・比較</h2>
+<div class="icard">
+<div class="ititle">41. 競合サービスの機能比較表を作る</div>
+<div class="imeta">対象: 企画・マーケ ｜ 場面: 自社サービスとの差分を整理したいとき</div>
+<pre class="prompt" id="p41">指定した競合3社の公開情報を調べて、機能・価格・強み弱みを比較表にまとめて。自社サービスとの違いが一目でわかるように並べて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p41',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">42. 複数ソースを横断調査してレポート化</div>
+<div class="imeta">対象: 企画・リサーチ ｜ 場面: あるテーマについて多角的に把握したいとき</div>
+<pre class="prompt" id="p42">指定したテーマについて複数の情報源を調べて、共通して言われていること・意見が分かれている点を整理したレポートをWordで作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p42',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">43. 業界動向を調べて要点をまとめる</div>
+<div class="imeta">対象: 経営企画 ｜ 場面: 定期的に業界のニュースを追いたいとき</div>
+<pre class="prompt" id="p43">直近1か月の業界動向を調べて、自社への影響が大きそうな順に要点をまとめて。1ページに収まる形にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p43',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">44. 製品選定のための比較軸を洗い出す</div>
+<div class="imeta">対象: 情シス・購買 ｜ 場面: ツール導入の検討材料を揃えたいとき</div>
+<pre class="prompt" id="p44">導入候補のツールを調べて、比較すべき軸(価格・機能・サポート・導入実績)を洗い出し、比較表にまとめて。判断に迷いそうな点は補足コメントを添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p44',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">45. 矛盾する情報源を突き合わせて整理</div>
+<div class="imeta">対象: 企画・リサーチ ｜ 場面: 情報源によって言っていることが違うとき</div>
+<pre class="prompt" id="p45">指定したテーマについて複数の情報源を調べて、内容が一致している部分と食い違っている部分を分けて整理して。断定できない点は未確認と明記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p45',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">46. 特定トピックのFAQをリサーチしてまとめる</div>
+<div class="imeta">対象: CS・サポート ｜ 場面: よくある質問への回答を体系化したいとき</div>
+<pre class="prompt" id="p46">指定したトピックについてよくある質問を調べ、それぞれに簡潔な回答をつけたFAQをまとめて。社内トーンに合わせた言葉遣いにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p46',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">47. 直近の関連ニュースを集めて一覧化</div>
+<div class="imeta">対象: 広報・マーケ ｜ 場面: 自社に関係するニュースを把握したいとき</div>
+<pre class="prompt" id="p47">直近1週間で指定キーワードに関連するニュースを調べて、日付・出典・要点3行の一覧にまとめて。重要度が高そうなものには印をつけて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p47',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">48. 出張先の情報をまとめて手配用リストを作成</div>
+<div class="imeta">対象: 総務・営業 ｜ 場面: 出張前に必要な情報を集めたいとき</div>
+<pre class="prompt" id="p48">出張先の交通手段・所要時間・近隣ホテルの候補を調べて、手配用の比較リストを作って。予算感がわかる目安も添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p48',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">49. 法改正の影響範囲をリサーチしてメモ化</div>
+<div class="imeta">対象: 法務・総務 ｜ 場面: 制度変更が自社業務に与える影響を確認したいとき</div>
+<pre class="prompt" id="p49">指定した法改正について調べて、自社の業務のどの部分に影響しそうかをこのフォルダの社内資料と照らし合わせてメモにまとめて。確度が低い部分は未確認と明記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p49',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">50. 複数候補地の比較検討資料を作る</div>
+<div class="imeta">対象: 総務・経営企画 ｜ 場面: オフィス移転や拠点開設の検討をするとき</div>
+<pre class="prompt" id="p50">候補地をいくつか調べて、家賃相場・アクセス・周辺環境を比較する資料を作って。判断材料として一覧表と簡単な所感を添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p50',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">6. 文章作成・編集・要約</h2>
+<div class="icard">
+<div class="ititle">51. 長文レポートを3段階の要約に圧縮</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 長い報告書を読む時間がないとき</div>
+<pre class="prompt" id="p51">このフォルダの報告書を、1行サマリー・3行要約・1段落要約の3段階で作って。どのレベルでも結論が伝わるようにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p51',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">52. 社内文章の読みやすさを校正</div>
+<div class="imeta">対象: 総務・広報 ｜ 場面: 社内通知文がわかりにくいと言われたとき</div>
+<pre class="prompt" id="p52">このフォルダの文章を読みやすさの観点で校正して。冗長な表現や二重否定を直し、変更箇所がわかるよう修正版と元の文章を並べて見せて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p52',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">53. 複数の下書きをひとつのトーンに統一</div>
+<div class="imeta">対象: マーケ・広報 ｜ 場面: 複数人が書いた文章のトーンがバラバラなとき</div>
+<pre class="prompt" id="p53">このフォルダの複数の文章を読んで、口調・敬語レベル・呼び方を統一して。統一後の基準を最後に簡単なスタイルガイドとしてまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p53',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">54. 打ち合わせメモから正式な報告書を作成</div>
+<div class="imeta">対象: 営業・PM ｜ 場面: 走り書きのメモを正式文書にしたいとき</div>
+<pre class="prompt" id="p54">このフォルダの打ち合わせメモをもとに、社内の報告フォーマットに沿った正式な報告書を作成して。曖昧な部分は質問リストとして別途まとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p54',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">55. 長いメールスレッドを要点だけに整理</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 何十通も往復したメールの経緯を追いたいとき</div>
+<pre class="prompt" id="p55">Gmailの指定スレッドを読んで、経緯・現状の論点・未解決の課題を時系列で整理して。1ページで把握できるようにまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p55',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">56. マニュアルの表現を初心者向けに書き換え</div>
+<div class="imeta">対象: 情シス・研修担当 ｜ 場面: 専門用語だらけのマニュアルを新人向けにしたいとき</div>
+<pre class="prompt" id="p56">このフォルダのマニュアルを読んで、専門用語を日常語や比喩で言い換えた初心者向けバージョンを作って。元のマニュアルとの対応がわかるようにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p56',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">57. プレスリリースのドラフト作成</div>
+<div class="imeta">対象: 広報 ｜ 場面: 新サービス発表の文面を用意したいとき</div>
+<pre class="prompt" id="p57">このフォルダの製品概要資料をもとに、プレスリリースのドラフトを作って。見出し・リード文・本文・会社概要の構成で、誇張表現は避けて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p57',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">58. 社外向け文章の敬語・トーンを統一</div>
+<div class="imeta">対象: 営業・CS ｜ 場面: 顧客向け文面の言葉遣いを揃えたいとき</div>
+<pre class="prompt" id="p58">このフォルダの顧客向け文章を確認して、敬語レベルとトーンを社内の文体規定に合わせて統一して。変更点を一覧で報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p58',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">59. 箇条書きメモを説明文として清書</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 走り書きの箇条書きを人に見せられる形にしたいとき</div>
+<pre class="prompt" id="p59">このフォルダの箇条書きメモを、背景と結論がつながる説明文に清書して。元の意図を変えないよう、不明な点は質問として残して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p59',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">60. 英語資料を日本語で要約翻訳</div>
+<div class="imeta">対象: 企画・リサーチ ｜ 場面: 英語の資料を社内共有したいとき</div>
+<pre class="prompt" id="p60">このフォルダの英語資料を読んで、直訳ではなく内容が伝わる日本語の要約に翻訳して。専門用語には簡単な補足を添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p60',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">7. 表計算・突合・経理処理（請求書×入出金など）</h2>
+<div class="icard">
+<div class="ititle">61. 請求書一覧と入出金明細を突合</div>
+<div class="imeta">対象: 経理 ｜ 場面: 月末に入金消込を行うとき</div>
+<pre class="prompt" id="p61">このフォルダの請求書一覧と銀行入出金明細を突合して、一致した項目・未回収・金額が合わない項目をそれぞれ一覧にして。判断が難しいものは備考に理由を書いて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p61',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">62. 二重入金・未回収の検出</div>
+<div class="imeta">対象: 経理 ｜ 場面: 入金処理のミスを見つけたいとき</div>
+<pre class="prompt" id="p62">このフォルダの入出金データを確認して、同一取引先から重複して入金されている可能性のあるものと、請求済みだが未入金のものを検出して一覧にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p62',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">63. 四半期支出のreconcileとvariance memo</div>
+<div class="imeta">対象: 財務 ｜ 場面: 予算と実績の差異を説明する必要があるとき</div>
+<pre class="prompt" id="p63">このフォルダの予算データと実績データを突合して、科目ごとの差異をまとめて。差異が大きい項目については考えられる理由をmemoとして添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p63',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">64. 経費精算の領収書とExcelを突合</div>
+<div class="imeta">対象: 経理・総務 ｜ 場面: 経費申請の妥当性を確認したいとき</div>
+<pre class="prompt" id="p64">このフォルダの領収書画像と経費精算のExcelを突合して、金額が一致しているか、申請漏れがないかを確認して。不一致のものだけ一覧で報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p64',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">65. 複数銀行口座の入出金を1シートに統合</div>
+<div class="imeta">対象: 経理 ｜ 場面: 複数口座の資金繰りを一元管理したいとき</div>
+<pre class="prompt" id="p65">このフォルダの複数口座の入出金明細を1つのExcelシートに統合して、口座ごと・月ごとに集計できる形にして。フォーマットが違う場合は統一して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p65',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">66. 見積と実績のvariance分析</div>
+<div class="imeta">対象: PM・経理 ｜ 場面: プロジェクトの予算超過を確認したいとき</div>
+<pre class="prompt" id="p66">このフォルダの見積書と実績の支出データを比較して、項目ごとの差異と超過率を一覧にして。超過が大きい項目には考えられる原因を添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p66',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">67. 給与明細データの検算</div>
+<div class="imeta">対象: 人事・経理 ｜ 場面: 給与計算のミスを事前に確認したいとき</div>
+<pre class="prompt" id="p67">このフォルダの給与明細データについて、支給額と控除額の計算が正しいかを検算して。計算が合わない箇所だけを一覧で報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p67',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">68. 在庫台帳と発注データの整合性チェック</div>
+<div class="imeta">対象: 購買・物流 ｜ 場面: 在庫数と発注記録がずれていないか確認したいとき</div>
+<pre class="prompt" id="p68">このフォルダの在庫台帳と発注データを突合して、数量が一致しない品目を洗い出して。発注漏れ・入力ミスの可能性がある箇所にコメントを添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p68',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">69. 取引先別の売掛金一覧を作成</div>
+<div class="imeta">対象: 経理 ｜ 場面: 未回収金の管理をしたいとき</div>
+<pre class="prompt" id="p69">このフォルダの請求データから取引先別の売掛金一覧を作って、支払期限が近い順に並べて。期限超過しているものは目立つように印をつけて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p69',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">70. 月次締め作業のチェックリスト実行</div>
+<div class="imeta">対象: 経理 ｜ 場面: 毎月の締め作業を漏れなく進めたいとき</div>
+<pre class="prompt" id="p70">このフォルダの月次締めチェックリストを確認して、対応済み・未対応の項目を今月分のデータと突き合わせて判定して。未対応の項目だけ一覧で報告して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p70',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">8. 定例業務の自動化（スケジュール済みタスク）</h2>
+<div class="icard">
+<div class="ititle">71. 毎朝の重要メール要約タスクを予定登録</div>
+<div class="imeta">対象: 管理職 ｜ 場面: 毎朝メールを確認する時間を短縮したいとき</div>
+<pre class="prompt" id="p71">毎朝8時にGmailの重要メールを要約して報告するタスクをスケジュールに登録して。緊急度が高いものは冒頭にまとめる形式にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p71',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">72. 毎週月曜の週次レポート作成を自動化</div>
+<div class="imeta">対象: マーケ・営業 ｜ 場面: 週次レポートの作成を仕組み化したいとき</div>
+<pre class="prompt" id="p72">毎週月曜9時に、先週の実績データから週次レポートを作成するタスクをスケジュールに登録して。フォーマットはこのフォルダの過去レポートに合わせて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p72',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">73. CRMの直近24時間の変化を毎朝ブリーフィング</div>
+<div class="imeta">対象: 営業マネージャー ｜ 場面: 商談状況を毎朝把握したいとき</div>
+<pre class="prompt" id="p73">毎朝7時にCRMの直近24時間の更新内容(新規商談・ステータス変化)をブリーフィングするタスクをスケジュールに登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p73',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">74. 毎月1日にダウンロードフォルダを整理</div>
+<div class="imeta">対象: 総務・個人 ｜ 場面: ファイルが溜まり続けるのを防ぎたいとき</div>
+<pre class="prompt" id="p74">毎月1日にダウンロードフォルダの中身を内容ごとに仕分けリネームするタスクをスケジュールに登録して。実行後は変更内容のサマリーを送って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p74',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">75. 定期的な競合価格チェック</div>
+<div class="imeta">対象: マーケ・営業 ｜ 場面: 競合の価格変更にすぐ気づきたいとき</div>
+<pre class="prompt" id="p75">毎週月曜に指定した競合サービスの価格ページを確認して、前回との違いがあれば報告するタスクをスケジュールに登録して。変化がなければその旨だけ短く伝えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p75',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">76. 毎週金曜に週報テンプレへの入力を自動化</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 週報作成を忘れがちなとき</div>
+<pre class="prompt" id="p76">毎週金曜17時に、今週のカレンダーとメールの動きから週報テンプレの下書きを作るタスクをスケジュールに登録して。最終確認は自分で行う前提で下書きまでにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p76',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">77. 毎朝のカレンダーと未対応メールの突き合わせ通知</div>
+<div class="imeta">対象: 管理職 ｜ 場面: 予定と対応漏れを同時に把握したいとき</div>
+<pre class="prompt" id="p77">毎朝、今日のカレンダー予定と未対応の重要メールを突き合わせて、優先順位付きのToDoを通知するタスクをスケジュールに登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p77',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">78. 月末に経費精算リマインドと集計</div>
+<div class="imeta">対象: 経理・総務 ｜ 場面: 経費精算の締め切り管理をしたいとき</div>
+<pre class="prompt" id="p78">毎月25日に、このフォルダの経費申請状況を集計して未提出者へのリマインド文案を作るタスクをスケジュールに登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p78',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">79. 定期的なバックアップ状況チェック</div>
+<div class="imeta">対象: 情シス ｜ 場面: 重要フォルダのバックアップ漏れを防ぎたいとき</div>
+<pre class="prompt" id="p79">毎週月曜に、このフォルダの重要ファイルが最新の状態でバックアップ先に存在するかを確認し、抜けがあれば報告するタスクをスケジュールに登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p79',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">80. 四半期ごとの棚卸しリスト作成タスク</div>
+<div class="imeta">対象: 総務・購買 ｜ 場面: 定期棚卸しの準備を仕組み化したいとき</div>
+<pre class="prompt" id="p80">四半期の最終週に、このフォルダの在庫台帳から棚卸し用のチェックリストを作成するタスクをスケジュールに登録して。前回との差分も添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p80',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">9. スキル作成・パーソナライズ設定</h2>
+<div class="icard">
+<div class="ititle">81. 今やった作業をスキル化して名前を付ける</div>
+<div class="imeta">対象: 全職種 ｜ 場面: 同じ作業を今後も繰り返す予定があるとき</div>
+<pre class="prompt" id="p81">今やった請求書突合の作業を、次回から同じ手順で再現できるスキルにして。名前は「請求書突合」にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p81',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">82. 資料フォーマットをテンプレとしてスキル化</div>
+<div class="imeta">対象: マーケ・広報 ｜ 場面: 決まった形式の資料を毎回一から作っているとき</div>
+<pre class="prompt" id="p82">このフォルダの週次レポートのフォーマットをスキルとして登録して。次回からは新しいデータを渡すだけで同じ構成のレポートが作れるようにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p82',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">83. 自分の文体をパーソナライズ設定に反映</div>
+<div class="imeta">対象: 個人・広報 ｜ 場面: 自分らしい文体で書いてほしいとき</div>
+<pre class="prompt" id="p83">このフォルダの過去に自分が書いた文章をいくつか読んで、文体・語尾・よく使う言い回しの特徴をまとめ、personalizationの設定に反映して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p83',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">84. 命名規則・保存構造をCowork global instructionsに登録</div>
+<div class="imeta">対象: 総務・全職種 ｜ 場面: ファイル名や保存場所のルールを毎回説明したくないとき</div>
+<pre class="prompt" id="p84">普段使っているファイル命名規則(日付形式・区切り文字)と保存フォルダの構造をCoworkのglobal instructionsにまとめて登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p84',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">85. コミュニティスキルをレビューしてから導入</div>
+<div class="imeta">対象: 情シス・個人 ｜ 場面: 外部で配布されているスキルを使いたいとき</div>
+<pre class="prompt" id="p85">このスキルファイルの中身を確認して、不審な指示や意図しない外部送信の記述がないかレビューして。問題なければ使い方の要点も簡潔にまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p85',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">86. 議事録フォーマットをスキル化</div>
+<div class="imeta">対象: PM・全職種 ｜ 場面: 議事録の形式を毎回統一したいとき</div>
+<pre class="prompt" id="p86">このフォルダの議事録テンプレをもとに、文字起こしを渡すだけで同じフォーマットの議事録が作れるスキルにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p86',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">87. 請求書処理の手順をスキル化</div>
+<div class="imeta">対象: 経理 ｜ 場面: 毎月同じ手順で請求書を処理しているとき</div>
+<pre class="prompt" id="p87">今回行った請求書と入出金の突合手順を、次回から同じ流れで再現できるスキルにして。判定基準(一致条件・未回収の定義)も明記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p87',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">88. 自分の人物像ドシエを作ってpersonal preferencesに反映</div>
+<div class="imeta">対象: 個人 ｜ 場面: 汎用的な回答ではなく自分向けの回答にしたいとき</div>
+<pre class="prompt" id="p88">このフォルダの自分のメモや過去資料を読んで、興味関心・仕事の進め方の傾向をまとめた簡単なドシエを作り、personal preferencesに反映して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p88',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">89. 定型メール返信のスタイルをパーソナライズ</div>
+<div class="imeta">対象: 営業・CS ｜ 場面: 問い合わせ返信の文面を毎回考え直したくないとき</div>
+<pre class="prompt" id="p89">このフォルダの過去の返信メールを参考に、よくある問い合わせパターンごとの返信スタイルをまとめて、personalizationまたはスキルとして登録して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p89',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">90. 複数プロジェクト共通のレポートスキルを作る</div>
+<div class="imeta">対象: PM ｜ 場面: 複数案件で同じ形式の進捗レポートを作っているとき</div>
+<pre class="prompt" id="p90">複数プロジェクトで共通して使える進捗レポートのフォーマットをスキルにして。プロジェクト名とデータを渡すだけでレポートが作れるようにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p90',this)">📋 コピー</button></div>
+</div>
+<h2 class="cat">10. 外部ツール連携（コネクタ／MCP：Slack/CRM/Notion等）</h2>
+<div class="icard">
+<div class="ititle">91. Slackの重要チャンネルを要約してレポート化</div>
+<div class="imeta">対象: 管理職・PM ｜ 場面: 追いきれないSlackチャンネルの内容を把握したいとき</div>
+<pre class="prompt" id="p91">Slackコネクタで指定チャンネルの直近1週間の投稿を確認して、重要な決定事項と未解決の議論を要約したレポートを作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p91',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">92. CRMの商談データから週次パイプライン更新</div>
+<div class="imeta">対象: 営業マネージャー ｜ 場面: 商談状況を定期的に可視化したいとき</div>
+<pre class="prompt" id="p92">CRMコネクタで商談データを取得して、ステージ別のパイプライン状況を週次レポートにまとめて。先週からの変化点にはコメントを添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p92',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">93. Notionのタスクとカレンダーを突き合わせ</div>
+<div class="imeta">対象: PM ｜ 場面: タスク管理と予定がずれていないか確認したいとき</div>
+<pre class="prompt" id="p93">Notionコネクタでプロジェクトのタスク一覧を取得して、Googleカレンダーの予定と突き合わせ、期限が近いのに予定が入っていないタスクを一覧にして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p93',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">94. Slackへの週次レポート自動投稿設定</div>
+<div class="imeta">対象: マーケ・営業 ｜ 場面: レポートを毎週手動で共有するのが手間なとき</div>
+<pre class="prompt" id="p94">毎週月曜9時に、このフォルダの週次レポートを作成してSlackコネクタで指定チャンネルに投稿するタスクをスケジュールに登録して。投稿前に内容を確認できるようにして。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p94',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">95. CRMと通話記録を束ねて商談ブリーフ作成</div>
+<div class="imeta">対象: 営業 ｜ 場面: 商談前に相手の情報を素早く整理したいとき</div>
+<pre class="prompt" id="p95">CRMコネクタで対象企業の商談履歴を取得し、通話記録のコネクタの内容とあわせて、次の商談で使える1枚のブリーフを作って。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p95',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">96. Notionのナレッジベースを整理・更新</div>
+<div class="imeta">対象: 情シス・PM ｜ 場面: Notionの情報が古くなっているとき</div>
+<pre class="prompt" id="p96">Notionコネクタで指定ページを確認して、古い情報や重複しているページを洗い出して。更新が必要な箇所を一覧にして提示して、承認後に反映して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p96',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">97. 未接続のコネクタを確認して必要なものを提案</div>
+<div class="imeta">対象: 情シス・全職種 ｜ 場面: どのコネクタを使えばよいかわからないとき</div>
+<pre class="prompt" id="p97">現在有効になっているコネクタと未接続のコネクタを確認して、今回の業務(CRMデータとメールの突合)に必要なものがあれば教えて。有効化が必要なら促して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p97',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">98. Slackスレッドから決定事項を抽出してNotionに転記</div>
+<div class="imeta">対象: PM ｜ 場面: Slack上で決まったことが記録に残っていないとき</div>
+<pre class="prompt" id="p98">Slackコネクタで指定スレッドを確認して、決定事項とその背景を抽出し、Notionコネクタで指定のプロジェクトページに議事録として転記して。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p98',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">99. CRMデータの重複レコード検出</div>
+<div class="imeta">対象: 営業事務 ｜ 場面: 同じ顧客が複数登録されている可能性があるとき</div>
+<pre class="prompt" id="p99">CRMコネクタで顧客データを取得して、社名やメールアドレスが似ている重複レコードの候補を一覧にして。統合すべきかどうかの判断材料も添えて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p99',this)">📋 コピー</button></div>
+</div>
+<div class="icard">
+<div class="ititle">100. 複数コネクタを横断した週次サマリー作成</div>
+<div class="imeta">対象: 管理職 ｜ 場面: 複数ツールの状況を1つにまとめて把握したいとき</div>
+<pre class="prompt" id="p100">Slack・CRM・Googleカレンダーのコネクタから今週の主な動きをそれぞれ確認して、1つの週次サマリーにまとめて。特に対応が必要な項目は冒頭にまとめて。</pre>
+<div class="cbtns"><button class="btn sm" onclick="copyPrompt('p100',this)">📋 コピー</button></div>
+</div>
+</main>
+<pre id="pfull" class="hidden"># 🎁 Claude Cowork プロンプト100選
+
+Coworkにそのまま貼って使える実用プロンプト集。フォルダを選び、成果物とゴールを渡す前提で書いています。
+
+## 1. ファイル・フォルダ整理／リネーム
+
+### 1. 散らかったフォルダを内容で仕分けリネーム
+対象: 総務・全職種 ｜ 場面: デスクトップやダウンロードが散らかったとき
+```text
+このフォルダの中身を確認して、内容ごとにサブフォルダを作って仕分けし、各ファイルを「YYYY-MM-DD_内容がわかる短い名前」に統一リネームして。移動前に分類案を提示して、承認したら実行して。最後にどこに何を入れたかのindexをmarkdownで作って。
+```
+
+### 2. 重複ファイルの検出と統合案
+対象: 総務・オペレーション ｜ 場面: 同じ資料が複数バージョンで散在しているとき
+```text
+このフォルダ内で内容がほぼ同じ・重複しているファイルを見つけて一覧にして。どれを正本として残すべきか(更新日・内容の完全性で判断)を提案し、承認後に重複分を「重複_アーカイブ」フォルダへ移動して。削除はしないで。
+```
+
+### 3. 写真・スクリーンショットの月別自動振り分け
+対象: 個人・広報 ｜ 場面: スクリーンショットや写真が撮影日バラバラで溜まっているとき
+```text
+このフォルダの画像を撮影日または更新日を見て「YYYY-MM」のサブフォルダに振り分けて。スクリーンショットと写真は別フォルダに分けて。作業前にフォルダ構成案を見せて。
+```
+
+### 4. 契約書フォルダをcontrol area別に仕分け
+対象: 法務 ｜ 場面: 契約書が種類ごとに整理されず1フォルダに溜まっているとき
+```text
+このフォルダ内の契約書を読んで、契約種別(業務委託・NDA・利用規約など)ごとにサブフォルダへ仕分けて。契約書ごとに相手方名・締結日・満了日をまとめた一覧もExcelで作って。
+```
+
+### 5. 領収書画像をExcel台帳用にリネーム整理
+対象: 経理 ｜ 場面: 経費精算の領収書画像がまとまっていないとき
+```text
+このフォルダの領収書画像を1枚ずつ確認して、「日付_支払先_金額」の形式でリネームして。同時に日付・支払先・金額・勘定科目候補を並べたExcel一覧を作って。読み取れないものは備考に不明と書いて。
+```
+
+### 6. バージョン違いファイルの最新版だけ抽出
+対象: 企画・制作 ｜ 場面: 同じ資料のv1、v2、finalなどが混在しているとき
+```text
+このフォルダ内で同じ資料の複数バージョンを見つけて、ファイル名・更新日から最新版らしきものを判定して。最新版だけを「最新」フォルダにコピーし、判断根拠を一覧にして見せて。
+```
+
+### 7. 巨大フォルダの中身indexマップ作成
+対象: 新任担当者・引き継ぎ ｜ 場面: 前任者が残した大量フォルダを把握したいとき
+```text
+このフォルダ全体をざっと確認して、どんな種類のファイルがどこにあるかをmarkdownのindexにまとめて。特に古そうなもの・重要そうなものにコメントを添えて。
+```
+
+### 8. 命名規則を統一した一括リネーム
+対象: 総務・オペレーション ｜ 場面: 部署内でファイル名がバラバラなとき
+```text
+このフォルダ内のファイルを「案件名_資料種別_日付」の命名規則に統一してリネームして。今の名前と新しい名前の対応表を先に見せてから実行して。
+```
+
+### 9. 長期未使用ファイルのアーカイブ移動
+対象: 総務 ｜ 場面: 容量を圧迫する古いファイルを整理したいとき
+```text
+このフォルダ内で更新日が1年以上前のファイルを洗い出して一覧にして。内容から見て不要そうなものと残すべきものを分けて提案し、承認後に「アーカイブ」フォルダへ移動して。
+```
+
+### 10. プロジェクト完了フォルダの納品用パッケージ化
+対象: PM・制作 ｜ 場面: プロジェクトが終わり納品物をまとめたいとき
+```text
+このプロジェクトフォルダから納品対象のファイルだけを選んで「納品」フォルダにまとめて。含めた理由・除外したファイルの一覧、納品物の目次をmarkdownで作って。
+```
+
+## 2. 資料・スライド作成（PowerPoint/Googleスライド）
+
+### 11. 議事録から4枚の要点デッキを作る
+対象: マーケ・広報 ｜ 場面: 会議の内容を経営陣に簡潔に共有したいとき
+```text
+このフォルダの議事録を読んで、要点・決定事項・次のアクションをPowerPointの4枚デッキにまとめて。1枚目はサマリー、最後の1枚は推奨アクションにして。
+```
+
+### 12. 週次レポートをテンプレ通りに更新
+対象: マーケ・営業 ｜ 場面: 毎週同じ形式のレポートを更新するとき
+```text
+このフォルダにある先週のレポートを雛形として、今週分のデータで数値と所感を更新して。フォーマットは変えず、前週比の増減も一言添えて。
+```
+
+### 13. リサーチ結果をスライド化
+対象: 企画・リサーチ ｜ 場面: 調査結果を関係者に見せる形にしたいとき
+```text
+このフォルダの調査メモを読んで、要点ごとにスライド1枚1トピックの構成でGoogleスライドを作って。参照したファイル名も各スライドの下部に小さく記載して。
+```
+
+### 14. 提案書のドラフトをPowerPointで作る
+対象: 営業 ｜ 場面: 顧客向けの新規提案資料を準備するとき
+```text
+このフォルダの過去提案書と今回のヒアリングメモをもとに、課題・提案内容・導入効果・費用感の構成で提案書ドラフトを作って。デザインは過去資料のトーンに合わせて。
+```
+
+### 15. 決算資料を前回フォーマットで更新
+対象: 経理・財務 ｜ 場面: 四半期ごとに同じ形式の決算資料を作るとき
+```text
+このフォルダの前回決算資料をフォーマットとして使い、最新の数値データに差し替えて更新して。増減が大きい項目にはコメントを追加して。
+```
+
+### 16. 複数資料を1つのデッキに統合
+対象: PM・企画 ｜ 場面: 各チームがバラバラに作った資料を1本化したいとき
+```text
+このフォルダ内の複数のスライド資料を内容の重複を整理しながら1つのデッキに統合して。章立て案を先に見せてから統合作業に入って。
+```
+
+### 17. 社内向け説明スライドを図解付きで作る
+対象: 情シス・企画 ｜ 場面: 新しい業務フローを社内に説明したいとき
+```text
+このフォルダの業務フロー文書をもとに、図解を交えた社内説明用スライドを作って。専門用語には簡単な言い換えを添えて。
+```
+
+### 18. 顧客向け事例紹介スライドを作る
+対象: マーケ・営業 ｜ 場面: 導入事例を営業資料として使いたいとき
+```text
+このフォルダの事例インタビュー記録を読んで、課題→導入→効果の流れで1社1枚の事例紹介スライドを作って。数字の成果は目立つように配置して。
+```
+
+### 19. スライドのデザインをブランドガイドに揃える
+対象: マーケ・デザイン ｜ 場面: バラバラなデザインのスライドを統一したいとき
+```text
+このフォルダのブランドガイドを参照して、指定のスライド資料のフォント・配色・ロゴ配置をガイドに合わせて統一して。変更箇所を最後に一覧で報告して。
+```
+
+### 20. 長い資料を要点3枚に圧縮する
+対象: 全職種 ｜ 場面: 長い報告書を経営層向けに短くしたいとき
+```text
+このフォルダの報告書を読んで、要点だけを3枚のスライドに圧縮して。1枚目は結論、2枚目は根拠データ、3枚目は次のアクションにして。
+```
+
+## 3. データ分析・集計・可視化
+
+### 21. 売上csvを月次集計してグラフ化
+対象: 営業・経理 ｜ 場面: 日次売上データを月次で振り返りたいとき
+```text
+このフォルダの売上csvを月ごとに集計して、推移がわかる折れ線グラフを作って。前年同月比も出して、目立った増減には理由の仮説をコメントで添えて。
+```
+
+### 22. 複数店舗の実績を比較分析
+対象: 店舗運営 ｜ 場面: 複数拠点の実績を横比較したいとき
+```text
+このフォルダの店舗別実績データを比較して、上位・下位の店舗と差が出ている要因の仮説をまとめて。比較しやすい表とグラフをExcelで作って。
+```
+
+### 23. アンケート回答を集計してレポート化
+対象: マーケ・CS ｜ 場面: 顧客アンケートの結果をまとめたいとき
+```text
+このフォルダのアンケート回答データを設問ごとに集計して、自由記述はテーマ別に分類して。結果をグラフ付きのレポートにまとめて。
+```
+
+### 24. KPIダッシュボードの元データ整理
+対象: PM・マーケ ｜ 場面: 散らばったKPIデータを1つに集約したいとき
+```text
+このフォルダ内の複数ファイルに散らばっているKPIデータを1つのExcelシートにまとめて。項目名の表記ゆれは統一して、集計しやすい形に整えて。
+```
+
+### 25. 在庫データの異常値検出
+対象: 物流・購買 ｜ 場面: 在庫数の異常を見つけたいとき
+```text
+このフォルダの在庫データを確認して、急な増減や通常と違う数値を持つ品目を洗い出して。それぞれ考えられる原因の仮説も添えて一覧にして。
+```
+
+### 26. 広告出稿データの費用対効果分析
+対象: マーケ ｜ 場面: 複数媒体の広告効果を比較したいとき
+```text
+このフォルダの広告出稿データを媒体別に集計して、CPAやROASなど効果指標を比較して。次月の予算配分についての示唆をコメントで添えて。
+```
+
+### 27. 顧客セグメント別の傾向分析
+対象: マーケ・CS ｜ 場面: 顧客層ごとの違いを把握したいとき
+```text
+このフォルダの顧客データを属性や購買履歴でセグメント分けして、セグメントごとの傾向をまとめて。グラフと簡潔な考察をレポートにして。
+```
+
+### 28. 週次/月次の推移をトレンドグラフ化
+対象: 経営企画 ｜ 場面: 定点観測している数値の推移を見たいとき
+```text
+このフォルダの週次データを月次に集約して、主要指標の推移をトレンドグラフにして。傾向が変わった時期があれば注記して。
+```
+
+### 29. 複数ファイルのデータを統合してピボット
+対象: 経理・分析 ｜ 場面: 部署ごとに分かれたファイルを1つにまとめたいとき
+```text
+このフォルダ内の複数のExcelファイルを1つに統合して、部門別・期間別に集計できるピボットテーブルを作って。統合時の重複や欠損があれば報告して。
+```
+
+### 30. 分析結果をわかりやすいレポートに要約
+対象: 全職種 ｜ 場面: 分析済みデータを非専門家にも伝えたいとき
+```text
+このフォルダの分析データをもとに、専門用語を避けた1枚のサマリーレポートを作って。結論と根拠グラフ、次にすべきことを簡潔にまとめて。
+```
+
+## 4. メール・カレンダー・議事録（Gmail/Googleカレンダー/ドライブ連携）
+
+### 31. 受信トレイの重要メールを朝イチで要約
+対象: 管理職・営業 ｜ 場面: 出社直後にメールを効率よく確認したいとき
+```text
+Gmailの直近24時間の受信メールを確認して、対応が必要なものだけを重要度順に要約して。返信不要な通知系は除外して。
+```
+
+### 32. 参加者宛のTODOメール下書き作成
+対象: PM ｜ 場面: 会議後に参加者へタスクを共有したいとき
+```text
+このフォルダの会議議事録を読んで、参加者ごとに割り当てられたTODOを整理し、それぞれ宛先別のフォローアップメール下書きをGmailに作成して。送信はしないで。
+```
+
+### 33. 会議の文字起こしから議事録をテンプレで作成
+対象: 全職種 ｜ 場面: 録音・文字起こしから正式な議事録を作るとき
+```text
+このフォルダの会議文字起こしを読んで、前回の議事録と同じフォーマットで議事録を作成して。決定事項とネクストアクションの担当者を明確にして。
+```
+
+### 34. カレンダーの空き時間から候補日程を提示
+対象: 営業・秘書業務 ｜ 場面: 複数人との打ち合わせ日程を調整したいとき
+```text
+Googleカレンダーを確認して、来週で1時間の空きが取れる候補日時を3つ挙げて。既存の予定とバッティングしないものだけにして。
+```
+
+### 35. 未返信メールのフォローアップ下書き
+対象: 営業・CS ｜ 場面: 返信が止まっている商談を掘り起こしたいとき
+```text
+Gmailで1週間以上返信が来ていない送信済みメールを洗い出して、それぞれ穏やかなフォローアップの下書きを作って。一覧を先に見せてから下書き作成に進んで。
+```
+
+### 36. ドライブ内資料とカレンダーを突合して準備物リスト作成
+対象: PM・営業 ｜ 場面: 会議前に必要な資料を漏れなく揃えたいとき
+```text
+明日のカレンダー予定を確認して、それぞれの会議に関連しそうな資料をGoogleドライブから探し、準備物リストを作って。見つからないものは不明として明記して。
+```
+
+### 37. 週の予定をまとめたブリーフィングを毎朝作成
+対象: 管理職 ｜ 場面: 1日の予定を俯瞰して把握したいとき
+```text
+今日のGoogleカレンダーの予定とGmailの重要メールをまとめて、朝の1枚ブリーフィングを作って。優先して対応すべき順に並べて。
+```
+
+### 38. 出張の予定からタスクリストを自動生成
+対象: 営業・総務 ｜ 場面: 出張準備の抜け漏れをなくしたいとき
+```text
+Googleカレンダーの出張予定を確認して、必要な準備(交通手配・宿泊・持ち物・訪問先資料)のタスクリストを作って。期限も添えて。
+```
+
+### 39. 会議前に関連資料を集めて事前ブリーフを作成
+対象: 営業・PM ｜ 場面: 商談や打ち合わせの前に頭を整理したいとき
+```text
+次の商談の相手企業について、このフォルダ内の過去のやり取りとメールを確認し、会話で使える事前ブリーフを1枚にまとめて。
+```
+
+### 40. メール内の依頼事項を抽出してタスク化
+対象: 全職種 ｜ 場面: メールに埋もれた依頼を漏らさず管理したいとき
+```text
+Gmailの直近1週間のメールから、自分宛の依頼・確認事項を抽出して、期限とあわせたタスク一覧をこのフォルダにExcelで作って。
+```
+
+## 5. リサーチ・情報収集・比較
+
+### 41. 競合サービスの機能比較表を作る
+対象: 企画・マーケ ｜ 場面: 自社サービスとの差分を整理したいとき
+```text
+指定した競合3社の公開情報を調べて、機能・価格・強み弱みを比較表にまとめて。自社サービスとの違いが一目でわかるように並べて。
+```
+
+### 42. 複数ソースを横断調査してレポート化
+対象: 企画・リサーチ ｜ 場面: あるテーマについて多角的に把握したいとき
+```text
+指定したテーマについて複数の情報源を調べて、共通して言われていること・意見が分かれている点を整理したレポートをWordで作って。
+```
+
+### 43. 業界動向を調べて要点をまとめる
+対象: 経営企画 ｜ 場面: 定期的に業界のニュースを追いたいとき
+```text
+直近1か月の業界動向を調べて、自社への影響が大きそうな順に要点をまとめて。1ページに収まる形にして。
+```
+
+### 44. 製品選定のための比較軸を洗い出す
+対象: 情シス・購買 ｜ 場面: ツール導入の検討材料を揃えたいとき
+```text
+導入候補のツールを調べて、比較すべき軸(価格・機能・サポート・導入実績)を洗い出し、比較表にまとめて。判断に迷いそうな点は補足コメントを添えて。
+```
+
+### 45. 矛盾する情報源を突き合わせて整理
+対象: 企画・リサーチ ｜ 場面: 情報源によって言っていることが違うとき
+```text
+指定したテーマについて複数の情報源を調べて、内容が一致している部分と食い違っている部分を分けて整理して。断定できない点は未確認と明記して。
+```
+
+### 46. 特定トピックのFAQをリサーチしてまとめる
+対象: CS・サポート ｜ 場面: よくある質問への回答を体系化したいとき
+```text
+指定したトピックについてよくある質問を調べ、それぞれに簡潔な回答をつけたFAQをまとめて。社内トーンに合わせた言葉遣いにして。
+```
+
+### 47. 直近の関連ニュースを集めて一覧化
+対象: 広報・マーケ ｜ 場面: 自社に関係するニュースを把握したいとき
+```text
+直近1週間で指定キーワードに関連するニュースを調べて、日付・出典・要点3行の一覧にまとめて。重要度が高そうなものには印をつけて。
+```
+
+### 48. 出張先の情報をまとめて手配用リストを作成
+対象: 総務・営業 ｜ 場面: 出張前に必要な情報を集めたいとき
+```text
+出張先の交通手段・所要時間・近隣ホテルの候補を調べて、手配用の比較リストを作って。予算感がわかる目安も添えて。
+```
+
+### 49. 法改正の影響範囲をリサーチしてメモ化
+対象: 法務・総務 ｜ 場面: 制度変更が自社業務に与える影響を確認したいとき
+```text
+指定した法改正について調べて、自社の業務のどの部分に影響しそうかをこのフォルダの社内資料と照らし合わせてメモにまとめて。確度が低い部分は未確認と明記して。
+```
+
+### 50. 複数候補地の比較検討資料を作る
+対象: 総務・経営企画 ｜ 場面: オフィス移転や拠点開設の検討をするとき
+```text
+候補地をいくつか調べて、家賃相場・アクセス・周辺環境を比較する資料を作って。判断材料として一覧表と簡単な所感を添えて。
+```
+
+## 6. 文章作成・編集・要約
+
+### 51. 長文レポートを3段階の要約に圧縮
+対象: 全職種 ｜ 場面: 長い報告書を読む時間がないとき
+```text
+このフォルダの報告書を、1行サマリー・3行要約・1段落要約の3段階で作って。どのレベルでも結論が伝わるようにして。
+```
+
+### 52. 社内文章の読みやすさを校正
+対象: 総務・広報 ｜ 場面: 社内通知文がわかりにくいと言われたとき
+```text
+このフォルダの文章を読みやすさの観点で校正して。冗長な表現や二重否定を直し、変更箇所がわかるよう修正版と元の文章を並べて見せて。
+```
+
+### 53. 複数の下書きをひとつのトーンに統一
+対象: マーケ・広報 ｜ 場面: 複数人が書いた文章のトーンがバラバラなとき
+```text
+このフォルダの複数の文章を読んで、口調・敬語レベル・呼び方を統一して。統一後の基準を最後に簡単なスタイルガイドとしてまとめて。
+```
+
+### 54. 打ち合わせメモから正式な報告書を作成
+対象: 営業・PM ｜ 場面: 走り書きのメモを正式文書にしたいとき
+```text
+このフォルダの打ち合わせメモをもとに、社内の報告フォーマットに沿った正式な報告書を作成して。曖昧な部分は質問リストとして別途まとめて。
+```
+
+### 55. 長いメールスレッドを要点だけに整理
+対象: 全職種 ｜ 場面: 何十通も往復したメールの経緯を追いたいとき
+```text
+Gmailの指定スレッドを読んで、経緯・現状の論点・未解決の課題を時系列で整理して。1ページで把握できるようにまとめて。
+```
+
+### 56. マニュアルの表現を初心者向けに書き換え
+対象: 情シス・研修担当 ｜ 場面: 専門用語だらけのマニュアルを新人向けにしたいとき
+```text
+このフォルダのマニュアルを読んで、専門用語を日常語や比喩で言い換えた初心者向けバージョンを作って。元のマニュアルとの対応がわかるようにして。
+```
+
+### 57. プレスリリースのドラフト作成
+対象: 広報 ｜ 場面: 新サービス発表の文面を用意したいとき
+```text
+このフォルダの製品概要資料をもとに、プレスリリースのドラフトを作って。見出し・リード文・本文・会社概要の構成で、誇張表現は避けて。
+```
+
+### 58. 社外向け文章の敬語・トーンを統一
+対象: 営業・CS ｜ 場面: 顧客向け文面の言葉遣いを揃えたいとき
+```text
+このフォルダの顧客向け文章を確認して、敬語レベルとトーンを社内の文体規定に合わせて統一して。変更点を一覧で報告して。
+```
+
+### 59. 箇条書きメモを説明文として清書
+対象: 全職種 ｜ 場面: 走り書きの箇条書きを人に見せられる形にしたいとき
+```text
+このフォルダの箇条書きメモを、背景と結論がつながる説明文に清書して。元の意図を変えないよう、不明な点は質問として残して。
+```
+
+### 60. 英語資料を日本語で要約翻訳
+対象: 企画・リサーチ ｜ 場面: 英語の資料を社内共有したいとき
+```text
+このフォルダの英語資料を読んで、直訳ではなく内容が伝わる日本語の要約に翻訳して。専門用語には簡単な補足を添えて。
+```
+
+## 7. 表計算・突合・経理処理（請求書×入出金など）
+
+### 61. 請求書一覧と入出金明細を突合
+対象: 経理 ｜ 場面: 月末に入金消込を行うとき
+```text
+このフォルダの請求書一覧と銀行入出金明細を突合して、一致した項目・未回収・金額が合わない項目をそれぞれ一覧にして。判断が難しいものは備考に理由を書いて。
+```
+
+### 62. 二重入金・未回収の検出
+対象: 経理 ｜ 場面: 入金処理のミスを見つけたいとき
+```text
+このフォルダの入出金データを確認して、同一取引先から重複して入金されている可能性のあるものと、請求済みだが未入金のものを検出して一覧にして。
+```
+
+### 63. 四半期支出のreconcileとvariance memo
+対象: 財務 ｜ 場面: 予算と実績の差異を説明する必要があるとき
+```text
+このフォルダの予算データと実績データを突合して、科目ごとの差異をまとめて。差異が大きい項目については考えられる理由をmemoとして添えて。
+```
+
+### 64. 経費精算の領収書とExcelを突合
+対象: 経理・総務 ｜ 場面: 経費申請の妥当性を確認したいとき
+```text
+このフォルダの領収書画像と経費精算のExcelを突合して、金額が一致しているか、申請漏れがないかを確認して。不一致のものだけ一覧で報告して。
+```
+
+### 65. 複数銀行口座の入出金を1シートに統合
+対象: 経理 ｜ 場面: 複数口座の資金繰りを一元管理したいとき
+```text
+このフォルダの複数口座の入出金明細を1つのExcelシートに統合して、口座ごと・月ごとに集計できる形にして。フォーマットが違う場合は統一して。
+```
+
+### 66. 見積と実績のvariance分析
+対象: PM・経理 ｜ 場面: プロジェクトの予算超過を確認したいとき
+```text
+このフォルダの見積書と実績の支出データを比較して、項目ごとの差異と超過率を一覧にして。超過が大きい項目には考えられる原因を添えて。
+```
+
+### 67. 給与明細データの検算
+対象: 人事・経理 ｜ 場面: 給与計算のミスを事前に確認したいとき
+```text
+このフォルダの給与明細データについて、支給額と控除額の計算が正しいかを検算して。計算が合わない箇所だけを一覧で報告して。
+```
+
+### 68. 在庫台帳と発注データの整合性チェック
+対象: 購買・物流 ｜ 場面: 在庫数と発注記録がずれていないか確認したいとき
+```text
+このフォルダの在庫台帳と発注データを突合して、数量が一致しない品目を洗い出して。発注漏れ・入力ミスの可能性がある箇所にコメントを添えて。
+```
+
+### 69. 取引先別の売掛金一覧を作成
+対象: 経理 ｜ 場面: 未回収金の管理をしたいとき
+```text
+このフォルダの請求データから取引先別の売掛金一覧を作って、支払期限が近い順に並べて。期限超過しているものは目立つように印をつけて。
+```
+
+### 70. 月次締め作業のチェックリスト実行
+対象: 経理 ｜ 場面: 毎月の締め作業を漏れなく進めたいとき
+```text
+このフォルダの月次締めチェックリストを確認して、対応済み・未対応の項目を今月分のデータと突き合わせて判定して。未対応の項目だけ一覧で報告して。
+```
+
+## 8. 定例業務の自動化（スケジュール済みタスク）
+
+### 71. 毎朝の重要メール要約タスクを予定登録
+対象: 管理職 ｜ 場面: 毎朝メールを確認する時間を短縮したいとき
+```text
+毎朝8時にGmailの重要メールを要約して報告するタスクをスケジュールに登録して。緊急度が高いものは冒頭にまとめる形式にして。
+```
+
+### 72. 毎週月曜の週次レポート作成を自動化
+対象: マーケ・営業 ｜ 場面: 週次レポートの作成を仕組み化したいとき
+```text
+毎週月曜9時に、先週の実績データから週次レポートを作成するタスクをスケジュールに登録して。フォーマットはこのフォルダの過去レポートに合わせて。
+```
+
+### 73. CRMの直近24時間の変化を毎朝ブリーフィング
+対象: 営業マネージャー ｜ 場面: 商談状況を毎朝把握したいとき
+```text
+毎朝7時にCRMの直近24時間の更新内容(新規商談・ステータス変化)をブリーフィングするタスクをスケジュールに登録して。
+```
+
+### 74. 毎月1日にダウンロードフォルダを整理
+対象: 総務・個人 ｜ 場面: ファイルが溜まり続けるのを防ぎたいとき
+```text
+毎月1日にダウンロードフォルダの中身を内容ごとに仕分けリネームするタスクをスケジュールに登録して。実行後は変更内容のサマリーを送って。
+```
+
+### 75. 定期的な競合価格チェック
+対象: マーケ・営業 ｜ 場面: 競合の価格変更にすぐ気づきたいとき
+```text
+毎週月曜に指定した競合サービスの価格ページを確認して、前回との違いがあれば報告するタスクをスケジュールに登録して。変化がなければその旨だけ短く伝えて。
+```
+
+### 76. 毎週金曜に週報テンプレへの入力を自動化
+対象: 全職種 ｜ 場面: 週報作成を忘れがちなとき
+```text
+毎週金曜17時に、今週のカレンダーとメールの動きから週報テンプレの下書きを作るタスクをスケジュールに登録して。最終確認は自分で行う前提で下書きまでにして。
+```
+
+### 77. 毎朝のカレンダーと未対応メールの突き合わせ通知
+対象: 管理職 ｜ 場面: 予定と対応漏れを同時に把握したいとき
+```text
+毎朝、今日のカレンダー予定と未対応の重要メールを突き合わせて、優先順位付きのToDoを通知するタスクをスケジュールに登録して。
+```
+
+### 78. 月末に経費精算リマインドと集計
+対象: 経理・総務 ｜ 場面: 経費精算の締め切り管理をしたいとき
+```text
+毎月25日に、このフォルダの経費申請状況を集計して未提出者へのリマインド文案を作るタスクをスケジュールに登録して。
+```
+
+### 79. 定期的なバックアップ状況チェック
+対象: 情シス ｜ 場面: 重要フォルダのバックアップ漏れを防ぎたいとき
+```text
+毎週月曜に、このフォルダの重要ファイルが最新の状態でバックアップ先に存在するかを確認し、抜けがあれば報告するタスクをスケジュールに登録して。
+```
+
+### 80. 四半期ごとの棚卸しリスト作成タスク
+対象: 総務・購買 ｜ 場面: 定期棚卸しの準備を仕組み化したいとき
+```text
+四半期の最終週に、このフォルダの在庫台帳から棚卸し用のチェックリストを作成するタスクをスケジュールに登録して。前回との差分も添えて。
+```
+
+## 9. スキル作成・パーソナライズ設定
+
+### 81. 今やった作業をスキル化して名前を付ける
+対象: 全職種 ｜ 場面: 同じ作業を今後も繰り返す予定があるとき
+```text
+今やった請求書突合の作業を、次回から同じ手順で再現できるスキルにして。名前は「請求書突合」にして。
+```
+
+### 82. 資料フォーマットをテンプレとしてスキル化
+対象: マーケ・広報 ｜ 場面: 決まった形式の資料を毎回一から作っているとき
+```text
+このフォルダの週次レポートのフォーマットをスキルとして登録して。次回からは新しいデータを渡すだけで同じ構成のレポートが作れるようにして。
+```
+
+### 83. 自分の文体をパーソナライズ設定に反映
+対象: 個人・広報 ｜ 場面: 自分らしい文体で書いてほしいとき
+```text
+このフォルダの過去に自分が書いた文章をいくつか読んで、文体・語尾・よく使う言い回しの特徴をまとめ、personalizationの設定に反映して。
+```
+
+### 84. 命名規則・保存構造をCowork global instructionsに登録
+対象: 総務・全職種 ｜ 場面: ファイル名や保存場所のルールを毎回説明したくないとき
+```text
+普段使っているファイル命名規則(日付形式・区切り文字)と保存フォルダの構造をCoworkのglobal instructionsにまとめて登録して。
+```
+
+### 85. コミュニティスキルをレビューしてから導入
+対象: 情シス・個人 ｜ 場面: 外部で配布されているスキルを使いたいとき
+```text
+このスキルファイルの中身を確認して、不審な指示や意図しない外部送信の記述がないかレビューして。問題なければ使い方の要点も簡潔にまとめて。
+```
+
+### 86. 議事録フォーマットをスキル化
+対象: PM・全職種 ｜ 場面: 議事録の形式を毎回統一したいとき
+```text
+このフォルダの議事録テンプレをもとに、文字起こしを渡すだけで同じフォーマットの議事録が作れるスキルにして。
+```
+
+### 87. 請求書処理の手順をスキル化
+対象: 経理 ｜ 場面: 毎月同じ手順で請求書を処理しているとき
+```text
+今回行った請求書と入出金の突合手順を、次回から同じ流れで再現できるスキルにして。判定基準(一致条件・未回収の定義)も明記して。
+```
+
+### 88. 自分の人物像ドシエを作ってpersonal preferencesに反映
+対象: 個人 ｜ 場面: 汎用的な回答ではなく自分向けの回答にしたいとき
+```text
+このフォルダの自分のメモや過去資料を読んで、興味関心・仕事の進め方の傾向をまとめた簡単なドシエを作り、personal preferencesに反映して。
+```
+
+### 89. 定型メール返信のスタイルをパーソナライズ
+対象: 営業・CS ｜ 場面: 問い合わせ返信の文面を毎回考え直したくないとき
+```text
+このフォルダの過去の返信メールを参考に、よくある問い合わせパターンごとの返信スタイルをまとめて、personalizationまたはスキルとして登録して。
+```
+
+### 90. 複数プロジェクト共通のレポートスキルを作る
+対象: PM ｜ 場面: 複数案件で同じ形式の進捗レポートを作っているとき
+```text
+複数プロジェクトで共通して使える進捗レポートのフォーマットをスキルにして。プロジェクト名とデータを渡すだけでレポートが作れるようにして。
+```
+
+## 10. 外部ツール連携（コネクタ／MCP：Slack/CRM/Notion等）
+
+### 91. Slackの重要チャンネルを要約してレポート化
+対象: 管理職・PM ｜ 場面: 追いきれないSlackチャンネルの内容を把握したいとき
+```text
+Slackコネクタで指定チャンネルの直近1週間の投稿を確認して、重要な決定事項と未解決の議論を要約したレポートを作って。
+```
+
+### 92. CRMの商談データから週次パイプライン更新
+対象: 営業マネージャー ｜ 場面: 商談状況を定期的に可視化したいとき
+```text
+CRMコネクタで商談データを取得して、ステージ別のパイプライン状況を週次レポートにまとめて。先週からの変化点にはコメントを添えて。
+```
+
+### 93. Notionのタスクとカレンダーを突き合わせ
+対象: PM ｜ 場面: タスク管理と予定がずれていないか確認したいとき
+```text
+Notionコネクタでプロジェクトのタスク一覧を取得して、Googleカレンダーの予定と突き合わせ、期限が近いのに予定が入っていないタスクを一覧にして。
+```
+
+### 94. Slackへの週次レポート自動投稿設定
+対象: マーケ・営業 ｜ 場面: レポートを毎週手動で共有するのが手間なとき
+```text
+毎週月曜9時に、このフォルダの週次レポートを作成してSlackコネクタで指定チャンネルに投稿するタスクをスケジュールに登録して。投稿前に内容を確認できるようにして。
+```
+
+### 95. CRMと通話記録を束ねて商談ブリーフ作成
+対象: 営業 ｜ 場面: 商談前に相手の情報を素早く整理したいとき
+```text
+CRMコネクタで対象企業の商談履歴を取得し、通話記録のコネクタの内容とあわせて、次の商談で使える1枚のブリーフを作って。
+```
+
+### 96. Notionのナレッジベースを整理・更新
+対象: 情シス・PM ｜ 場面: Notionの情報が古くなっているとき
+```text
+Notionコネクタで指定ページを確認して、古い情報や重複しているページを洗い出して。更新が必要な箇所を一覧にして提示して、承認後に反映して。
+```
+
+### 97. 未接続のコネクタを確認して必要なものを提案
+対象: 情シス・全職種 ｜ 場面: どのコネクタを使えばよいかわからないとき
+```text
+現在有効になっているコネクタと未接続のコネクタを確認して、今回の業務(CRMデータとメールの突合)に必要なものがあれば教えて。有効化が必要なら促して。
+```
+
+### 98. Slackスレッドから決定事項を抽出してNotionに転記
+対象: PM ｜ 場面: Slack上で決まったことが記録に残っていないとき
+```text
+Slackコネクタで指定スレッドを確認して、決定事項とその背景を抽出し、Notionコネクタで指定のプロジェクトページに議事録として転記して。
+```
+
+### 99. CRMデータの重複レコード検出
+対象: 営業事務 ｜ 場面: 同じ顧客が複数登録されている可能性があるとき
+```text
+CRMコネクタで顧客データを取得して、社名やメールアドレスが似ている重複レコードの候補を一覧にして。統合すべきかどうかの判断材料も添えて。
+```
+
+### 100. 複数コネクタを横断した週次サマリー作成
+対象: 管理職 ｜ 場面: 複数ツールの状況を1つにまとめて把握したいとき
+```text
+Slack・CRM・Googleカレンダーのコネクタから今週の主な動きをそれぞれ確認して、1つの週次サマリーにまとめて。特に対応が必要な項目は冒頭にまとめて。
+```
+</pre>
+<footer>ClaudeCodeチャンネル ｜ このプレゼントは自由に使ってください</footer>
+<script>
+function copyTextWithFallback(text){
+  function fb(){try{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+    const ok=document.execCommand('copy');ta.remove();return ok;}catch(e){return false;}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(text).then(()=>true).catch(fb);}
+  return Promise.resolve(fb());
+}
+function showCopyResult(btn,ok){const o=btn.dataset.o||btn.textContent;btn.dataset.o=o;
+  btn.textContent=ok?'✔ コピーしました':'✖ コピー不可 → ⬇をご利用ください';setTimeout(()=>{btn.textContent=o;},ok?1600:3200);}
+async function copyPrompt(id,btn){const ok=await copyTextWithFallback(document.getElementById(id).textContent);showCopyResult(btn,ok);}
+function downloadText(id,fn,btn){try{const t=document.getElementById(id).textContent;const b=new Blob([t],{type:'text/plain;charset=utf-8'});
+  const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=fn;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(u),2000);}catch(e){if(btn){const o=btn.textContent;btn.textContent='✖ 保存不可';setTimeout(()=>{btn.textContent=o;},3000);}}}
+</script></div></body></html>
